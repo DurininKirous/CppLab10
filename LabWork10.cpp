@@ -55,7 +55,10 @@ public:
 				{
 					Element=va_arg(ptr, int);
 				}
-				else Element=va_arg(ptr, T);
+				else 
+				{
+					Element=va_arg(ptr, T);
+				}
 			}
 			va_end(ptr);
 			(*this).UpdatePriority();
