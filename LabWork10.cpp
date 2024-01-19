@@ -51,7 +51,11 @@ public:
 			for ( size_t i=0; i<N; ++i )
 			{
 				Queue[i]=Element;
-				Element=va_arg(ptr, T);
+				if (sizeof(T)<4)
+				{
+					Element=va_arg(ptr, int);
+				}
+				else Element=va_arg(ptr, T);
 			}
 			va_end(ptr);
 			(*this).UpdatePriority();
